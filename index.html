@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Library Card Generator</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Import Maps for modern unbundled module loading -->
+    <script type="importmap">
+    {
+        "imports": {
+            "jsbarcode": "https://esm.sh/jsbarcode@3.11.6",
+            "qrcode": "https://esm.sh/qrcode@1.5.3"
+        }
+    }
+    </script>
+</head>
+<body>
+    <div class="app-container">
+        
+        <div class="no-print header">
+            <div class="input-wrapper">
+                <input type="text" id="cardNumberInput" placeholder="Enter Card Number" autocomplete="off" autocorrect="off" spellcheck="false">
+            </div>
+            
+            <div class="toggle">
+                <button id="btnBarcode" class="active">Barcode</button>
+                <button id="btnQrcode">QR Code</button>
+            </div>
+        </div>
+
+        <div class="main-area">
+            <div class="card" id="libraryCard">
+                <div class="card-header">
+                    <span class="card-title">LIBRARY CARD</span>
+                </div>
+                <div class="code-wrapper">
+                    <!-- SVG is used for crisp barcode rendering -->
+                    <svg id="barcodeElement"></svg>
+                    <!-- Canvas is used for QR Code -->
+                    <canvas id="qrcodeElement" style="display: none;"></canvas>
+                </div>
+                <div class="card-number" id="displayNumber"></div>
+            </div>
+        </div>
+
+        <div class="no-print footer">
+            <button id="btnPrint" class="print-btn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                    <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                    <rect x="6" y="14" width="12" height="8"></rect>
+                </svg>
+                Print Card
+            </button>
+        </div>
+
+    </div>
+
+    <script type="module" src="app.js"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"4c6229722a6346bc8eb5cb0e5eae5d41","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
